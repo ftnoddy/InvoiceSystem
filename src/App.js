@@ -71,49 +71,52 @@ function Invoice() {
         <tbody>
           {items.map((item, index) => (
             <tr key={index}>
-              <td>
-                <input
-                  type="text"
-                  name="name"
-                  value={item.name}
-                  onChange={(e) => handleItemChange(index, e)}
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="quantity"
-                  value={item.quantity}
-                  onChange={(e) => handleItemChange(index, e)}
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  name="price"
-                  value={item.price}
-                  onChange={(e) => handleItemChange(index, e)}
-                />
-              </td>
-              <td>${item.quantity * item.price}</td>
-              <td>
-                <button
-                  className="remove-btn"
-                  onClick={() => removeItem(index)}
-                >
-                  Remove
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="3">
-              <button className="add-btn" onClick={addItem}>
-                Add Item
-              </button>
-            </td>
+            <td>
+        <input
+          type="text"
+          name="name"
+          value={item.name}
+          onChange={(e) => handleItemChange(index, e)}
+          data-testid={`item-input-${index + 1}`} // Update the data-testid attribute
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          name="quantity"
+          value={item.quantity}
+          onChange={(e) => handleItemChange(index, e)}
+          data-testid={`quantity-input-${index + 1}`} // Update the data-testid attribute
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          name="price"
+          value={item.price}
+          onChange={(e) => handleItemChange(index, e)}
+          data-testid={`price-input-${index + 1}`} // Update the data-testid attribute
+        />
+      </td>
+      <td>${item.quantity * item.price}</td>
+      <td>
+        <button
+          className="remove-btn"
+          onClick={() => removeItem(index)}
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+<tfoot>
+  <tr>
+    <td colSpan="3">
+      <button className="add-btn" onClick={addItem} aria-label="Add Item">
+        Add Item
+      </button>
+    </td>
             <td>Total:</td>
             <td>${calculateTotal()}</td>
           </tr>
