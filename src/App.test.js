@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Invoice from './App';
+import  Invoice  from './App';
 import calculateTotal from './App';
 
 describe("Invoice component", () => {
@@ -10,7 +10,7 @@ describe("Invoice component", () => {
     const item1 = screen.getByTestId("item-input-1");
     const quantity1 = screen.getByTestId("quantity-input-1");
     const price1 = screen.getByTestId("price-input-1");
-    const addItemButton = screen.getByLabelText("Add Item");
+    const addItemButton = screen.getByLabelText("Add Items");
 
     // Set values for item 1
     fireEvent.change(item1, { target: { value: "Item 1" } });
